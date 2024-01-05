@@ -1,0 +1,130 @@
+@define-color backgroundlight #FFFFFF;
+@define-color backgrounddark #FFFFFF;
+@define-color workspacesbackground1 #FFFFFF;
+@define-color workspacesbackground2 #777777;
+@define-color bordercolor #FFFFFF;
+@define-color textcolor1 #000000;
+@define-color textcolor2 #000000;
+@define-color textcolor3 #FFFFFF;
+@define-color iconcolor #FFFFFF;
+
+* {
+  font-family: "Fira Sans Semibold";
+  font-size: 16px;
+}
+
+window#waybar {
+  /*  background-color: rgba(43, 48, 59, 0.65); */
+  background-color: transparent;
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces {
+  min-width: 230px;
+  margin: 5px 1px 6px 1px;
+  padding: 0px 1px;
+  border-radius: 15px;
+  border: 0px;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+
+  color: @textcolor1;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+  margin: 4px 3px;
+  border-radius: 15px;
+  border: 0px;
+  color: @textcolor3;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  color: @textcolor1;
+  background: @workspacesbackground2;
+  border-radius: 15px;
+  /*min-width: 40px;*/
+  transition: all 0.1s ease-in-out;
+}
+
+#workspaces button:hover {
+  color: @textcolor1;
+  background: @workspacesbackground2;
+  border-radius: 15px;
+}
+
+#mode {
+  background-color: #64727d;
+  border-bottom: 3px solid #d9e0ee;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd,
+#custom-powermenu,
+#language,
+#idle_inhibitor {
+  padding: 3px 10px;
+  margin: 3px 0px;
+  color: #d9e0ee;
+  border-radius: 2px;
+  background-color: #161320;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+  border: solid;
+  border-radius: 3px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#clock {
+  min-width: 45px;
+  margin-right: 3px;
+}
+
+label:focus {
+  background-color: #d9e0ee;
+}
+
+#tray {
+  background-color: #161320;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #f28fad;
+}

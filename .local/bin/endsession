@@ -1,0 +1,4 @@
+#!/bin/sh
+
+session=`loginctl session-status | awk 'NR==1{print $1}'`
+loginctl terminate-session $session
